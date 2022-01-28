@@ -4,9 +4,9 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		
-		<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700" rel="stylesheet">
-		<link rel="stylesheet" href="icofont/icofont.min.css">
+		<link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500,700,900" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700" rel="stylesheet" />
+		<link rel="stylesheet" href="icofont/icofont.min.css" />
 
 
 		<link rel="stylesheet" type="text/css" href="estilo.css">
@@ -20,7 +20,7 @@
 				<a href=""><img src="imagens/logo.png" alt="Zain"></a>
 				<nav class="nav">
 					<button class="btn-hamburger">
-						<i class="hamburger fas fa-bars fa-lg" ></i>
+						<i class="icofont-navigation-menu hamburger"></i>
 					</button>
 					<ul class="menu">
 						<li><a href="">Home</a></li>
@@ -34,7 +34,7 @@
 			</header>
 
 			<main>
-				<section class="home">
+				<section class="home efeitoTitulo">
 					<div class="home-conteudo">
 						<h2>Welcome!</h2>
 						<h1>
@@ -52,14 +52,14 @@
 								<span>View Work</span>
 							</a>
 							
-							<a href="" class="btn btn-amarelo">
+							<a href="" class="btn btn-branco">
 								<span>Hire Me!</span>
 							</a>
 						</div>
 					</div>		
 				</section>
 
-				<section class="about">
+				<section class="about efeitoTitulo">
 					<div class="about-conteudo">
 						<div class="about-titulo-skill">
 							<h2 class="titulo-secao">About Me</h2>
@@ -110,42 +110,38 @@
 									<li><a href=""><i class="icofont-linkedin icon"></i></a></li>
 									<li><a href=""><i class="icofont-behance icon"></i></a></li>
 								</ul>
-
 							</div>
 						</div>
 					</div>
 					
 				</section>
 
-				<section class="services">
+				<section class="services efeitoTitulo">
 					<div>
 						<h2 class="titulo-secao">Services</h2>
 
 
 						<div class="services-cards">
 							<div class="card">
-								<div class="card-icon-borda">
-									<i class="icofont-paint icon"></i>
-								</div>
-								
+								<i class="icofont-paint icon"></i>
 								<h3>Web Design</h3>
 								<p>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh Quisque volutpat</p>
 							</div>
 
-							<div>
-								<i class="icofont-ui-fire-wall"></i>
+							<div class="card">
+								<i class="icofont-ui-fire-wall icon"></i>
 								<h3>Development</h3>
 								<p>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh Quisque volutpat</p>
 							</div>
 
-							<div>
-								<i class="icofont-instrument"></i>
+							<div class="card">
+								<i class="icofont-instrument icon"></i>
 								<h3>Branding</h3>
 								<p>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh Quisque volutpat</p>
 							</div>
 
-							<div>
-								<i class="icofont-chart-histogram-alt"></i>
+							<div class="card">
+								<i class="icofont-chart-histogram-alt icon"></i>
 								<h3>Marketing</h3>
 								<p>Nulla metus metus ullamcorper vel tincidunt sed euismod nibh Quisque volutpat</p>
 							</div>
@@ -199,49 +195,62 @@
 					</div>
 				</section>
 
-				<section>
-					<h2 class="titulo-secao">Contact Us</h2>
+				<section class="contact efeitoTitulo">
+					<div class="container">
+						<h2 class="titulo-secao">Contact Us</h2>
 
-					<div>
-						<div>
-							<h4>PHONE :</h4>
-							<p>+20 010 2517 8918</p>
-						</div>
-						<div>
-							<h4>ADDRESS :</h4>
-							<p>3rd Avenue, Upper East Side, <br>
-							San Francisco</p>
-						</div>
-						<div>
-							<h4>EMAIL :</h4>
-							<p>email_support@youradress.com</p>
+						<div class="contact-conteudo">
+							<div class="contact-endereco">
+								<div>
+									<h4>PHONE :</h4>
+									<p>+20 010 2517 8918</p>
+								</div>
+								<div>
+									<h4>ADDRESS :</h4>
+									<p>3rd Avenue, Upper East Side, <br>
+									San Francisco</p>
+								</div>
+								<div>
+									<h4>EMAIL :</h4>
+									<p>email_support@youradress.com</p>
+								</div>
+							</div>
+
+							<form class="contact-form">
+								<input class="form-name" type="text" placeholder="Name">
+								<input class="form-email" type="email" placeholder="Email">
+								<input class="form-subject" type="text" placeholder="Subject">
+								<textarea class="form-message" placeholder="Message"></textarea>
+								
+								<button type="submit" class="btn-amarelo">
+									<span>
+										Send Message
+									</span>
+								</button>
+								
+
+							</form>
 						</div>
 					</div>
-
-					<form>
-						<input type="text" placeholder="Name">
-						<input type="email" placeholder="Email">
-						<input type="text" placeholder="Subject">
-						<textarea placeholder="Message"></textarea>
-
-						<input type="submit" value="Send message">
-
-					</form>
+					
+					
 				</section>
 
 			</main>
-			<footer>
-				<a href=""><img src="imagens/logo.png" alt="Zain"></a>
+			<footer class="footer">
+				<div class="footer-conteudo">
+					<a href=""><img src="imagens/logo.png" alt="Zain"></a>
 			
-				<ul>
-					<li><a href="">Facebook</a></li>
-					<li><a href="">Twitter</a></li>
-					<li><a href="">Instagram</a></li>
-					<li><a href="">Linkedin</a></li>
-					<li><a href="">BÊ</a></li>
-				</ul>
+					<ul>
+						<li><a href=""><i class="icofont-facebook icon"></i></a></li>
+						<li><a href=""><i class="icofont-twitter icon"></i></a></li>
+						<li><a href=""><i class="icofont-instagram icon"></i></a></li>
+						<li><a href=""><i class="icofont-linkedin icon"></i></a></li>
+						<li><a href=""><i class="icofont-behance icon"></i></a></li>
+					</ul>
 			
-				<p>© 2018 UI-THEMEZ. ALL RIGHTS RESERVED.</p>
+					<p>© 2018 UI-THEMEZ. ALL RIGHTS RESERVED.</p>
+				</div>	
 			</footer>
 		</div>
 
