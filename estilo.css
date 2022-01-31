@@ -6,7 +6,6 @@
 }
 
 body {
-	
 	font-family: 'Rubik', sans-serif;
 }
 
@@ -498,6 +497,128 @@ input:focus, textarea:focus{
 	transition: transform .4s;
 }
 
+/*Portfolio*/
+
+.portfolio {
+	background-color: #161617;
+}
+
+.portfolio-botoes {
+	border: 1px solid red;
+	text-align: center;
+}
+
+.portfolio-btn {
+	color: white;
+	font-size: 12px;
+	font-weight: 600;
+	background-color: transparent;
+	border: none;
+	padding: 9px 15px;
+	border-radius: 30px;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-family: rubik;
+}
+
+.portfolio-btn.active {
+	background-color: #c49b66;
+}
+
+.album {
+	border: 1px solid red;
+	height: 1000px;
+	width: 500px;
+}
+
+.album-item {
+	border: 1px solid blue;
+	position: relative;
+	margin-bottom: 20px;
+}
+
+.album-item .album-item-img {
+	width: 100%;
+	border-radius: 15px;	
+}
+
+.album-item-textos {
+	visibility: hidden;
+	position: absolute;
+	top: -5px;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	z-index: 1;
+	border: 1px solid red;
+	margin: 16px 10px;
+	background-color: rgba(0, 0, 0, 0.9);
+	text-align: center;
+	display: flex;
+	transform: translateY(10px);
+	transition: .5s;
+	opacity: 0;
+}
+
+.album-item.active .album-item-textos {
+	visibility: visible;
+	opacity: 1;
+	transform: translateY(0);
+	transition: .5s;
+}
+
+.album-item-textos div {
+	margin: auto;
+}
+
+.album-item .titulo-img {
+	position: relative;
+	font-size: 18px;
+	font-weight: 400;
+	animation-name: saidaTituloPortfolio;
+	animation-duration: .5s;
+}
+
+.album-item.active .titulo-img {
+	animation-name: entradaTituloPortfolio;
+	animation-duration: .5s;
+}
+
+
+@keyframes entradaTituloPortfolio {
+	from {
+		transform: translateY(-15px);
+	}
+
+	to {
+		transform: translateY(0);
+	}
+}
+
+@keyframes saidaTituloPortfolio {
+	from {
+		transform: translateY(0);
+	}
+
+	to {
+		transform: translateY(-15px);
+	}
+}
+
+.album-item-textos p {
+	color: #8f8f8f;
+	font-size: 15px;
+	line-height: 1.8;
+	margin-top: 8px;
+}
+
+.album-item-textos a {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+
 /*Contact*/
 
 .contact {
@@ -558,7 +679,6 @@ input:focus, textarea:focus{
 	width: 180px;
 	margin-left: auto;
 }
-
 
 /*Footer*/
 
