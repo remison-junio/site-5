@@ -23,6 +23,12 @@ card.forEach(function(elemento) {
 //Botões da seção portfolio
 
 const btnPortfolio = document.querySelectorAll('.portfolio-btn');
+var allItem = document.querySelectorAll('.all-item');
+const brandItem = document.querySelectorAll('.brand-item');
+const designItem = document.querySelectorAll('.design-item');
+const graphicItem = document.querySelectorAll('.graphic-item');
+
+
 btnPortfolio.forEach(function(elemento){
 	elemento.addEventListener('click', ()=> {
 
@@ -33,27 +39,42 @@ btnPortfolio.forEach(function(elemento){
 
 			elemento.classList.add('active');
 		}
+
+		//Mostrando as imagens do álbum ao clicar o botão do álbum escolhido
+
+		if (elemento.classList.contains('all')){	
+			mostrarAlbum(allItem);
+		} else if(elemento.classList.contains('brand')){
+			mostrarAlbum(brandItem);
+			ocutarAlbum(designItem);
+			ocutarAlbum(graphicItem);
+		} else if (elemento.classList.contains('design')) {
+			mostrarAlbum(designItem);
+			ocutarAlbum(brandItem);
+			ocutarAlbum(graphicItem);
+		} else if (elemento.classList.contains('graphic')) {
+			mostrarAlbum(graphicItem);
+			ocutarAlbum(brandItem);
+			ocutarAlbum(designItem);
+		}
 	})
 })
 
-//Portfolio album 
+//Portfolio album textos
 
 const albumItem = document.querySelectorAll('.album-item');
 const albumTituloImg = document.querySelectorAll('.titulo-img');
 
 albumItem.forEach(function(elemento){
-	elemento.addEventListener('mouseenter', ()=> {
-		elemento.classList.add('active');
-		
-	})
-
-	elemento.addEventListener('mouseleave', ()=> {
-		elemento.classList.remove('active');
-		
-	})
+	efeitoHover(elemento);
+})
 
 
+//Blog 
 
+const blogItem = document.querySelectorAll('.blog-conteudo-item');
+blogItem.forEach(function(elemento){
+	efeitoHover(elemento);
 })
 
 
@@ -67,5 +88,20 @@ function efeitoHover(elemento) {
 
 	elemento.addEventListener('mouseleave', ()=> {
 		elemento.classList.remove('active');
+	})
+}
+
+//Função que mostra as imagem do álbum
+
+function mostrarAlbum(item) {
+	item.forEach(function(elemento){
+		elemento.classList.add('mostra');
+	})
+}
+
+//Função que ocuta as imagem do álbum
+function ocutarAlbum(item) {
+	item.forEach(function(elemento){
+		elemento.classList.remove('mostra');
 	})
 }
