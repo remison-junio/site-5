@@ -29,11 +29,13 @@ input:focus, textarea:focus{
 	outline: none;
 }
 
-.estrutura {
-	background-color: white;
+.container {
+	max-width: 100%;
+	padding: 0 15px;
+	margin: 0 auto;
 }
 
-.efeitoTitulo.active .titulo-secao {
+.efeitoTitulo:hover .titulo-secao {
 	-webkit-text-stroke-width: 1px;
 	-webkit-text-stroke-color: rgba(255, 255, 255, .1);
 	color: transparent;
@@ -180,6 +182,9 @@ input:focus, textarea:focus{
 
 .header {
 	background-color: transparent;
+}
+
+.header-conteudo {
 	min-height: 80px;
 	display: flex;
 	align-items: center;
@@ -193,7 +198,6 @@ input:focus, textarea:focus{
 	visibility: hidden;	
 	position: absolute;
 	z-index: 1000;
-	background-color: gray;
 	right: 0;
 	left: 0px;
 	top: 80px;
@@ -201,26 +205,25 @@ input:focus, textarea:focus{
 	padding: 10px;
 	height: 0;
 	overflow-y: hidden;
-	transition:  .6s;
+	transition: .3s;
 }
 
 .menu.active {
 	visibility: visible;
 	height: 325px;
 	overflow-y: hidden;
+	transition: .3s;
 }
 
 .menu li {
 	text-align: center;
-	margin: 5px;
+	margin: 5px 0;
 }
 
 /*apenas quando o o menu for flex nas telas maiores
 
 
-.menu li:last-child {
-	margin-right: 0;
-}*/
+*/
 
 .menu li a {
 	font-size: 13px;
@@ -262,7 +265,6 @@ input:focus, textarea:focus{
 }
 
 .home-conteudo {
-	border: 1px solid red;
 	position: relative;
 	top: 50%;
 	transform: translateY(-50%);
@@ -281,10 +283,62 @@ input:focus, textarea:focus{
 	letter-spacing: 2px;
 	font-weight: 700;
 	margin: 15px 0 30px 0;
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
 }
 
 .home .btn:first-child {
 	margin-right: 10px;
+}
+
+.home-ad {
+	position: relative;
+	width: 190px;
+	height: 30px;	
+}
+
+.home-ad-item {	
+	color: #c49b66;
+	position: absolute;
+	width: 190px;
+	animation-name: animacaoHomeSaida;	
+	animation-duration: 1s;
+	visibility: hidden;
+}
+
+.home-ad-item.active {
+	visibility: visible;
+	animation-name: animacaoHomeEntrada;
+	animation-duration: 1s;
+	transform: translateX(-50%);
+}
+
+@keyframes animacaoHomeEntrada {
+	0% {
+		transform: translateX(-150%);
+		opacity: 0;
+	}
+
+	50% {
+		transform: translateX(-50%);
+		opacity: 1;
+	}
+}
+
+@keyframes animacaoHomeSaida {
+	0% {
+		transform: translateX(-50%);
+		visibility: visible;
+		opacity: 1;
+	}
+
+	50% {
+		transform: translateX(100%);
+		visibility: hidden;
+		opacity: 0;
+	}
 }
 
 /*About*/
@@ -294,7 +348,7 @@ input:focus, textarea:focus{
 }
 
 .about-conteudo {
-	padding:  0;
+	overflow-x: hidden;
 }
 
 .about-titulo-skill {
@@ -360,9 +414,11 @@ input:focus, textarea:focus{
 }
 
 .about-conteudo img {
-	width: 100%;
+	width: calc(100% + 30px);
 	height: 400px;
 	object-fit: cover;
+	position: relative;
+	left: -15px;
 }
 
 .about-textos {
@@ -431,7 +487,7 @@ input:focus, textarea:focus{
 }
 
 .about-redes-sociais .icon{
-	font-size: 15px;
+	font-size: 13px;
 	color: white;
 	transition: color .1s;
 }
@@ -491,7 +547,7 @@ input:focus, textarea:focus{
 	z-index: -1;
 }
 
-.card.active .icon::after {
+.card:hover .icon::after {
 	transform: rotate(0);
 	background-color: #c49b66;
 	transition: transform .4s;
@@ -560,7 +616,7 @@ input:focus, textarea:focus{
 	opacity: 0;
 }
 
-.album-item.active .album-item-textos {
+.album-item:hover .album-item-textos {
 	visibility: visible;
 	opacity: 1;
 	transform: translateY(0);
@@ -579,7 +635,7 @@ input:focus, textarea:focus{
 	animation-duration: .5s;
 }
 
-.album-item.active .titulo-img {
+.album-item:hover .titulo-img {
 	animation-name: entradaTituloPortfolio;
 	animation-duration: .5s;
 }
@@ -669,7 +725,7 @@ input:focus, textarea:focus{
 
 }
 
-.blog-conteudo-item.active img {
+.blog-conteudo-item:hover img {
 	
 	transition: .5s;
 	-webkit-filter: blur(0px);
@@ -694,7 +750,7 @@ input:focus, textarea:focus{
 	z-index: 10;
 }
 
-.blog-conteudo-item.active .blog-conteudo-texto {
+.blog-conteudo-item:hover .blog-conteudo-texto {
 	transform: translateY(0);
 	transition: transform .5s;
 	
@@ -861,4 +917,112 @@ input:focus, textarea:focus{
 	font-weight: 400;
 	color: #999;
 	letter-spacing: 2px;
+}
+
+/*Media Queries*/
+
+@media (min-width: 576px){
+	.container {
+		max-width: 540px;
+	}
+}
+
+@media (min-width: 768px){
+	.container {
+		max-width: 720px;
+	}
+
+	/*Titulo seção*/
+
+	.titulo-secao {
+		font-size: 70px;
+	}
+
+	/*Home*/
+
+	.home h1 {	
+		font-size: 45px;
+	}
+
+	.home-ad {
+		width: 360px;
+		height: 55px;		
+	}
+
+	.home-ad-item {	
+		width: 360px;
+	}
+}
+
+@media (min-width: 992px){
+	.container {
+		max-width: 968px;
+	}
+
+	/*Header*/
+
+	.btn-hamburger {
+		display: none;
+	}
+
+	.menu {
+		display: flex;
+		visibility: visible;	
+		position: static;
+		background-color: transparent;
+		height: auto;
+	}
+
+	.menu li {
+		margin: 0 10px;
+	}
+
+	/*Retira a margin do ultimo item do menu*/
+
+	.menu li:last-child {
+		margin-right: 0;
+	}
+
+	/*Home*/
+
+	.home h2 {
+		font-size: 70px;
+	}
+
+	.home h1 {	
+		font-size: 60px;
+	}
+
+	.home-ad {
+		width: 400px;
+		height: 75px;		
+	}
+
+	.home-ad-item {	
+		width: 400px;
+	}
+
+	/*About*/ 
+
+	.about-conteudo {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-column-gap: 10px;
+	}
+
+	.about-conteudo img {
+		width: 100%;
+		height: 100%;
+		position: static;
+	}
+
+	.barra-progresso {
+		width: 100%;
+	}
+}
+
+@media (min-width: 1200px){
+	.container {
+		max-width: 1140px;
+	}
 }
