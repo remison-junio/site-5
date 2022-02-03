@@ -184,6 +184,16 @@ input:focus, textarea:focus{
 	background-color: transparent;
 }
 
+.nav-scroll {
+	background-color: #222;
+	position: fixed;
+	top: -100px;
+	transform: translateY(100px);
+	transition: transform .5s;
+	width: 100%;
+	z-index: 1000;
+}
+
 .header-conteudo {
 	min-height: 80px;
 	display: flex;
@@ -306,6 +316,7 @@ input:focus, textarea:focus{
 	animation-name: animacaoHomeSaida;	
 	animation-duration: 1s;
 	visibility: hidden;
+	opacity: 0;
 }
 
 .home-ad-item.active {
@@ -313,6 +324,7 @@ input:focus, textarea:focus{
 	animation-name: animacaoHomeEntrada;
 	animation-duration: 1s;
 	transform: translateX(-50%);
+	opacity: 1;
 }
 
 @keyframes animacaoHomeEntrada {
@@ -352,7 +364,6 @@ input:focus, textarea:focus{
 }
 
 .about-titulo-skill {
-	border: 1px solid red;
 	padding-bottom: 50px;
 }
 
@@ -422,7 +433,6 @@ input:focus, textarea:focus{
 }
 
 .about-textos {
-	border: 1px solid red;
 	padding: 80px 0;
 }
 
@@ -505,7 +515,6 @@ input:focus, textarea:focus{
 }
 
 .card {
-	border: 1px solid red;
 	padding: 70px 20px 50px 20px;
 	text-align: center;
 	background-color: #0a0a0c;
@@ -591,6 +600,10 @@ input:focus, textarea:focus{
 	border: 1px solid blue;
 	position: relative;
 	margin-bottom: 60px;
+}
+
+.w-1, .w-2 {
+	width: 100%;
 }
 
 .album-item .album-item-img {
@@ -703,17 +716,15 @@ input:focus, textarea:focus{
 .blog-conteudo-item {
 	display: block;
 	position: relative;	
-	height: 400px;
+	min-height: 400px;
 	width: 100%;
 	overflow: hidden;
 	margin-bottom: 60px;
-	
 }
 
 .blog-conteudo-item img {
 	width: 100%;
 	object-fit: cover;
-	height: 400px;
 	border-radius: 15px;
 
 	-webkit-filter: blur(3px);
@@ -722,11 +733,9 @@ input:focus, textarea:focus{
   	-ms-filter: blur(3px);
  	filter: blur(3px);
  	transition: .5s;
-
 }
 
-.blog-conteudo-item:hover img {
-	
+.blog-conteudo-item:hover img {	
 	transition: .5s;
 	-webkit-filter: blur(0px);
   	-moz-filter: blur(0px);
@@ -752,8 +761,7 @@ input:focus, textarea:focus{
 
 .blog-conteudo-item:hover .blog-conteudo-texto {
 	transform: translateY(0);
-	transition: transform .5s;
-	
+	transition: transform .5s;	
 }
 
 .blog-conteudo-texto .assunto, .data {
@@ -772,7 +780,7 @@ input:focus, textarea:focus{
 	font-size: 25px;
 	line-height: 1.5;
 	font-weight: 500;
-	margin-bottom: 20px;
+	margin-bottom: 30px;
 	transition: color .4s;
 }
 
@@ -952,9 +960,48 @@ input:focus, textarea:focus{
 	.home-ad-item {	
 		width: 360px;
 	}
+
+	/*Services*/
+
+	.services-cards {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: 30px;
+	}
+
+	/*Portfolio*/
+
+	.album {
+		position: relative;
+		height: 1800px;
+	}
+
+	.w-1 {
+		position: absolute;
+		width: 50%;
+		height: auto;
+	}
+
+	.w-2 {
+		position: absolute;
+		width: 25%;
+		height: auto;
+	}
+
+	/*Contact*/
+
+	.contact-form {
+		grid-template-columns: 1fr 1fr;
+		grid-column-gap: 20px;
+	}
+	
+	.form-subject, .form-message, .contact-form button {	
+		grid-column: 1 / 3;
+	}
 }
 
 @media (min-width: 992px){
+
 	.container {
 		max-width: 968px;
 	}
@@ -1018,6 +1065,40 @@ input:focus, textarea:focus{
 
 	.barra-progresso {
 		width: 100%;
+	}
+
+	/*Services*/
+
+	.services-cards {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	/*Blog*/
+
+	.blog-conteudo {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-column-gap: 30px;
+	}
+
+	.blog-conteudo-item {	
+		min-height: auto;
+	}
+
+	/*Contact*/
+
+	.contact-conteudo {
+		display: grid;
+		grid-template-columns: 1fr 1.4fr;
+		grid-column-gap: 30px;
+	}
+
+	.contact-endereco {
+		height: 240px;
+	}
+
+	.contact-form {
+		padding-top: 0;
 	}
 }
 
