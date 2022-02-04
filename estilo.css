@@ -64,6 +64,7 @@ input:focus, textarea:focus{
 	overflow: hidden;
 	outline: none;
 	display: inline-block;
+	margin-bottom: 10px;
 }
 
 .btn::before, .btn::after {
@@ -185,7 +186,7 @@ input:focus, textarea:focus{
 }
 
 .nav-scroll {
-	background-color: #222;
+	background-color: #222 ;
 	position: fixed;
 	top: -100px;
 	transform: translateY(100px);
@@ -229,11 +230,6 @@ input:focus, textarea:focus{
 	text-align: center;
 	margin: 5px 0;
 }
-
-/*apenas quando o o menu for flex nas telas maiores
-
-
-*/
 
 .menu li a {
 	font-size: 13px;
@@ -299,10 +295,6 @@ input:focus, textarea:focus{
 	overflow: hidden;
 }
 
-.home .btn:first-child {
-	margin-right: 10px;
-}
-
 .home-ad {
 	position: relative;
 	width: 190px;
@@ -313,8 +305,6 @@ input:focus, textarea:focus{
 	color: #c49b66;
 	position: absolute;
 	width: 190px;
-	animation-name: animacaoHomeSaida;	
-	animation-duration: 1s;
 	visibility: hidden;
 	opacity: 0;
 }
@@ -322,9 +312,7 @@ input:focus, textarea:focus{
 .home-ad-item.active {
 	visibility: visible;
 	animation-name: animacaoHomeEntrada;
-	animation-duration: 1s;
-	transform: translateX(-50%);
-	opacity: 1;
+	animation-duration: 5s;
 }
 
 @keyframes animacaoHomeEntrada {
@@ -333,22 +321,13 @@ input:focus, textarea:focus{
 		opacity: 0;
 	}
 
-	50% {
+	5%, 98%{
 		transform: translateX(-50%);
 		opacity: 1;
 	}
-}
 
-@keyframes animacaoHomeSaida {
-	0% {
-		transform: translateX(-50%);
-		visibility: visible;
-		opacity: 1;
-	}
-
-	50% {
-		transform: translateX(100%);
-		visibility: hidden;
+	100% {
+		transform: translateX(0%);
 		opacity: 0;
 	}
 }
@@ -468,7 +447,9 @@ input:focus, textarea:focus{
 
 .about-redes-sociais {
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
+	line-height: 30px;
 }
 
 .about-redes-sociais span{
@@ -592,12 +573,7 @@ input:focus, textarea:focus{
 	background-color: #c49b66;
 }
 
-.album {
-	border: 1px solid red;
-}
-
 .album-item {
-	border: 1px solid blue;
 	position: relative;
 	margin-bottom: 60px;
 }
@@ -619,7 +595,6 @@ input:focus, textarea:focus{
 	right: 0;
 	left: 0;
 	z-index: 1;
-	border: 1px solid red;
 	margin: 16px 10px;
 	background-color: rgba(0, 0, 0, 0.9);
 	text-align: center;
@@ -685,7 +660,6 @@ input:focus, textarea:focus{
 	position: absolute;
 	bottom: 20px;
 	right: 20px;
-	
 }
 
 .album-item-textos .icon {
@@ -710,13 +684,13 @@ input:focus, textarea:focus{
 .blog-conteudo {
 	display: block;
 	padding-bottom: 40px;
-	
 }
 
 .blog-conteudo-item {
 	display: block;
 	position: relative;	
-	min-height: 400px;
+	min-height: ;
+	height: auto;
 	width: 100%;
 	overflow: hidden;
 	margin-bottom: 60px;
@@ -873,14 +847,16 @@ input:focus, textarea:focus{
 	display: flex;
 	justify-content: center;
 	margin: 40px 0 30px 0;
+	flex-wrap: wrap;
 }
 
 .footer-conteudo ul li{
-	margin-right: 50px;
+	margin: 0 25px;
+	line-height: 60px;
 }
 
 .footer-conteudo ul li:last-child{	
-	margin-right: 0px;
+	
 }
 
 .footer-conteudo ul li a{
@@ -930,12 +906,14 @@ input:focus, textarea:focus{
 /*Media Queries*/
 
 @media (min-width: 576px){
+
 	.container {
 		max-width: 540px;
 	}
 }
 
 @media (min-width: 768px){
+
 	.container {
 		max-width: 720px;
 	}
@@ -972,20 +950,13 @@ input:focus, textarea:focus{
 	/*Portfolio*/
 
 	.album {
-		position: relative;
-		height: 1800px;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-gap: 20px;
 	}
 
-	.w-1 {
-		position: absolute;
-		width: 50%;
-		height: auto;
-	}
-
-	.w-2 {
-		position: absolute;
-		width: 25%;
-		height: auto;
+	.album-item {
+		margin-bottom: 0px;
 	}
 
 	/*Contact*/
@@ -1017,6 +988,10 @@ input:focus, textarea:focus{
 		visibility: visible;	
 		position: static;
 		background-color: transparent;
+		height: auto;
+	}
+
+	.menu.active {
 		height: auto;
 	}
 
@@ -1082,7 +1057,7 @@ input:focus, textarea:focus{
 	}
 
 	.blog-conteudo-item {	
-		min-height: auto;
+		height: auto;
 	}
 
 	/*Contact*/
@@ -1103,6 +1078,7 @@ input:focus, textarea:focus{
 }
 
 @media (min-width: 1200px){
+
 	.container {
 		max-width: 1140px;
 	}

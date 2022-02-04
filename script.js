@@ -4,18 +4,20 @@ const header = document.querySelector('.header')
 window.addEventListener("scroll", function (event) {
 
     var scroll = this.scrollY;
-    if(scroll < 200) {
-    	header.classList.remove('nav-scroll')
-    } else {
-    	header.classList.add('nav-scroll')
+    if(scroll > 200) {
+    	header.classList.add('nav-scroll');	
+    } else if (scroll == 0){
+    	header.classList.remove('nav-scroll');
     }
 });
 
 const btnHamburger = document.querySelector('.btn-hamburger');
-btnHamburger.addEventListener('click', ()=> {
+btnHamburger.addEventListener('click', AbrirFecharMenu)
+
+function AbrirFecharMenu() {
 	const menu = document.querySelector('.menu');
 	menu.classList.toggle('active');
-})
+}
 
 //Animação da home
 
@@ -37,26 +39,26 @@ function animacaoHome() {
 			setTimeout(function(){
 
 				if(c == 0){
-					removendoActive(homeAdItem[2])
-					adicionandoActive(homeAdItem[0])
+					removendoActive(homeAdItem[2]);
+					adicionandoActive(homeAdItem[0]);
 					c++
 					
 					
 				} else if(c == 1) {
-					removendoActive(homeAdItem[0])
-					adicionandoActive(homeAdItem[1])
-					c++
+					removendoActive(homeAdItem[0]);
+					adicionandoActive(homeAdItem[1]);
+					c++;
 					
 				} else if(c == 2) {
-					removendoActive(homeAdItem[1])
-					adicionandoActive(homeAdItem[2])
+					removendoActive(homeAdItem[1]);
+					adicionandoActive(homeAdItem[2]);
 
-					c = 0	
+					c = 0;
 				}
 
 				console.log(c)
 			}, 5000 * i);
-		})()
+		})();
 	}
 }
 
@@ -118,17 +120,14 @@ function ocutarAlbum(item) {
 	})
 }
 
-
-// Identificar o clique no menu
-// Verificar o item que foi clicado e fazer referência com o alvo
-// Verificar a distância entre o alvo e o topo
-// Animar o scroll até o alvo
+//Scroll suave ao clicar nos links do menu
 
 const menuItems = document.querySelectorAll('.menu a[href^="#"]');
 
 menuItems.forEach(item => {
-  item.addEventListener('click', scrollToIdOnClick);
+  item.addEventListener('click', scrollToIdOnClick)
 })
+
 
 function getScrollTopByHref(element) {
   const id = element.getAttribute('href');
@@ -139,6 +138,7 @@ function scrollToIdOnClick(event) {
   event.preventDefault();
   const to = getScrollTopByHref(event.target) - 80;
   scrollToPosition(to);
+  AbrirFecharMenu();
 }
 
 function scrollToPosition(to) {
